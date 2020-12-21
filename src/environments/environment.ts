@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  calculationUrl: 'localhost:8080'
+  calculationUrl: 'http://localhost:8080'
 };
 
 /*

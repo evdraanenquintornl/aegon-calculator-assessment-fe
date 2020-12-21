@@ -1,3 +1,4 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { SimpleCalculatorService } from 'src/app/services/simple-calculator.service';
 
@@ -26,6 +27,7 @@ export class SimpleCalculatorComponent implements OnInit {
 
   calculate() { 
     this.simpleCalculatorService.calculate(this.sum);
+    this.reset();
   }
 
 }
