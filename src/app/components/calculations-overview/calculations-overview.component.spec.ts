@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CalculationsOverviewComponent } from './calculations-overview.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ToastrModule } from 'ngx-toastr';
 
 describe('CalculationsOverviewComponent', () => {
   let component: CalculationsOverviewComponent;
@@ -8,9 +10,13 @@ describe('CalculationsOverviewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CalculationsOverviewComponent ]
+      declarations: [CalculationsOverviewComponent],
+      imports: [
+        HttpClientTestingModule,
+        ToastrModule.forRoot()
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

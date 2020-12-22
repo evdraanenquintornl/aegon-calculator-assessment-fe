@@ -21,9 +21,8 @@ export class SimpleCalculatorService {
     });
   }
 
-
-  calculate(value: string) {
-    const stringArray = value.split(" ");
+  calculate(sumString: string): void {
+    const stringArray = sumString.split(' ');
     let result = null;
 
     this.httpClient.post<CalculationDto>(this.apiRoute, stringArray).subscribe(value => {
@@ -33,11 +32,20 @@ export class SimpleCalculatorService {
       result = value.result;
       return result;
     }, (error: HttpErrorResponse) => {
-      this.toastrService.error('An error occurred', error.statusText);
+
+      let errorText = 'An error occurred';
+
+      if (error.status === 411) {
+        errorText = 'Currently only able to calculate simple sums.';
+      } else if (error.status === 400) {
+        errorText = 'Unable to parse sum.';
+      }
+
+      this.toastrService.error(errorText, error.status.toString());
     });
   }
 
-  getAllCalculations() {
+  getAllCalculations(): BehaviorSubject<CalculationDto[]> {
     return this.previousCalculations;
   }
 

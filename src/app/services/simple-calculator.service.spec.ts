@@ -1,12 +1,20 @@
-import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ToastrModule } from 'ngx-toastr';
+import { SimpleCalculatorComponent } from '../components/simple-calculator/simple-calculator.component';
 
 import { SimpleCalculatorService } from './simple-calculator.service';
 
 describe('SimpleCalculatorService', () => {
   let service: SimpleCalculatorService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
+  beforeEach(async () => {
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule,
+        ToastrModule.forRoot()
+      ]
+    });
     service = TestBed.inject(SimpleCalculatorService);
   });
 
