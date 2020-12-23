@@ -1,15 +1,23 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
+import { CalculationsOverviewComponent } from './components/calculations-overview/calculations-overview.component';
+import { SimpleCalculatorComponent } from './components/simple-calculator/simple-calculator.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule,
+        ToastrModule.forRoot()
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        SimpleCalculatorComponent,
+        CalculationsOverviewComponent
       ],
     }).compileComponents();
   });

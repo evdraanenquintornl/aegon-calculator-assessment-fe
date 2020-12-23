@@ -4,10 +4,10 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SimpleCalculatorComponent } from './components/simple-calculator/simple-calculator.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { CalculationsOverviewComponent } from './components/calculations-overview/calculations-overview.component';
+import { SimpleCalculatorComponent } from './components/simple-calculator/simple-calculator.component';
 
 @NgModule({
   declarations: [
